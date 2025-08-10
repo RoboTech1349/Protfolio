@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waselkey</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            color: #3498db;
+        }
+        
+        /* Why Choose Us Section */
+        .why-choose {
+            background: #f9f9f9;
+            text-align: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Vision & Mission Section */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .vision, .mission {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .vision-mission {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Waselkey</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why-choose">Why Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>WE WORK WITH YOU TO ACHIEVE YOUR GOALS</h1>
+            <p>IT Consulting Service, Digital Marketing, and Customer Service Outsourcing<br>From Pakistan to Saudi Arabia</p>
+            <p>White label IT solutions<br>
+            Marketing for digital agencies<br>
+            Customer support for delivery & Services apps, e-commerce, and more</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>ABOUT WASELKEY</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Waselkey, a proud subsidiary of Worldke, is dedicated to transforming the landscape of business outsourcing. Spearheaded by visionary business Abdul Rahim and Shahid. Waselkey connects Pakistani talent with Saudi Arabian businesses to deliver world-class IT, marketing, and customer service solutions.</p>
+                  <!--   <p>Abdul Rahim and Shahid bring years of expertise in information technology and business process management. Their continued leadership ensures Waselkey maintains a culture of professional innovation, and commitment to customer success.</p> -->
+                    <p>At Waselkey, our mission is to empower Saudi companies with high-quality white-label outsourcing for digital marketing companies and IT solutions. Operating from Pakistan, we offer unparalleled value, competitive pricing, and a relentless focus on results, helping clients achieve their goals efficiently and reliably.</p>
+                </div>
+            <!--     <div class="about-image"> -->
+                    <!-- Image would be inserted here -->
+                   <!--  <img src="about-image.jpg" alt="Waselkey Team">
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>WHAT WE DO?</h2>
+            <p>At Waselkey, we offer expert Information Technology & Services, specializing in IT, marketing, and customer support. Our skilled team in Pakistan supports Saudi businesses across various platforms, delivering tailored solutions for digital transformation and customer service in both Arabic (with a focus on Hejazi accent) and English, ensuring operational efficiency with a strong commitment to quality and excellence.
+
+</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>IT & APP SOLUTIONS</h3>
+                    <ul>
+                        <li>All-in-One Apps & Platforms Support</li>
+                        <li>E-commerce Platform Management</li>
+                        <li>SaaS Setup & Integration</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>CUSTOMER SERVICE</h3>
+                    <ul>
+                        <li>Multilingual Contact Center</li>
+                        <li>Live Chat & Helpdesk Outsourcing</li>
+                        <li>24/7 Customer Response Teams</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>MARKETING SERVICES</h3>
+                    <ul>
+                        <li>SEO & Website Optimization</li>
+                        <li>Social Media & Content Creation</li>
+                        <li>Influencer Marketing & Brand Collaborations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <h2>WHY CHOOSE WASELKEY?</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>Effortless Communication</h3>
+                    <p>We make communication feel effortless - just like talking to a friend. Our team speaks in the Hijazi Arabic you love, so we understand you from the very first word. With us, every interaction is smooth, personal, and free from complications.</p>
+                </div>
+                <div class="feature">
+                    <h3>Customized Service</h3>
+                    <p>We deliver solutions that are not only cost-effective but tailored to Saudi markets, ensuring they meet your specific business needs and cultural expectations.</p>
+                </div>
+                <div class="feature">
+                    <h3>Relationship-Focused Approach</h3>
+                    <p>Our friendly professional teams in Pakistan work closely with each client, cultivating true partnerships and long-term business success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="container">
+        <div class="vision-mission">
+            <div class="vision">
+                <h2>VISION</h2>
+                <p>Waselkey aims to be the region's leading provider of innovative Information Technology & Services, recognized for excellence, reliability, and value. We strive to set the benchmark for service delivery in Saudi markets by driving digital transformation for our clients and serving as the trusted bridge between Pakistani expertise and Saudi business growth, offering cutting-edge solutions that include customer support through BPO services..</p>
+            </div>
+            <div class="mission">
+                <h2>MISSION</h2>
+                <p>Waselkey is committed to driving success for our clients through world-class outsourcing solutions delivered from Pakistan to Saudi Arabia. Our mission is to empower Saudi businesses with superior IT, marketing, and customer service outsourcing, ensuring the highest standards of quality, efficiency, and partnership. We strive to build long-term relationships by aligning our solutions with client goals, delivering cost-effective services without compromising excellence, and fostering an innovative and supportive work environment for our teams.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>CONTACT WASELKEY</h2>
+            <p>Reach out to partner with us</p>
+            
+            <div class="contact-info">
+                <p>info@waselkey.com</p>
+                <p>+92 3298383623</p>
+                <p>Sindh, Karachi, Pakistan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Waselkey - Information Technology & Services</p>
+            <p>&copy; 2025 Waselkey. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+        
+        // You can add more JavaScript functionality as needed
+    </script>
+</body>
+</html>
